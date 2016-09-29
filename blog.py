@@ -10,7 +10,12 @@ blog = SessionMiddleware(app, sesion_config)
 
 @route("/")
 def index():
-    return "This index"
+    return "This is index"
+
+@route("/topiclist")
+def topiclist():
+    return "This is topiclist"
+
 
 if __name__ == "__main__":
-    bottle.run(app=blog,host="127.0.0.1", port=8000)
+    bottle.run(app=blog, host="127.0.0.1", port=8000)
