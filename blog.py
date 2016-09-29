@@ -7,3 +7,5 @@ from config.sesion_config import sesion_config
 app = bottle.default_app()
 blog = SessionMiddleware(app, sesion_config)
 
+if __name__ == "__main__":
+    bottle.run(app=blog,host="127.0.0.1", port=8000)
