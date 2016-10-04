@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/semantic.min.css">
+    <script src="/static/js/vue.js"></script>
+    <title>topic</title>
+</head>
+<body>
+<div id="topic">
+    <p>{{topic.topic}}</p>
+</div>
+<script src="/static/js/jquery-3.1.1.min.js"></script>
+<script src="/static/js/semantic.min.js"></script>
+<script>
+    var topic = new Vue({
+        el:"#topic",
+        data:{
+            topic:"",
+        }
+    });
+    $.ajax({
+        url:"http://127.0.0.1:8001/topic/1"
+    }).done(function (msg) {
+        topic.topic=msg;
+    })
+</script>
+</body>
+</html>
