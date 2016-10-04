@@ -8,22 +8,27 @@
 </head>
 <body>
 <div id="topic">
-    <p>{{topic.topic}}</p>
+    <p>{{topic.route}}</p>
 </div>
 <script src="/static/js/jquery-3.1.1.min.js"></script>
 <script src="/static/js/semantic.min.js"></script>
+<script src="/static/js/vue-router.min.js"></script>
 <script>
     var topic = new Vue({
         el:"#topic",
         data:{
             topic:"",
+            route:this.$route.name,
         }
     });
+    var route = new VueRouter();
     $.ajax({
         url:"http://127.0.0.1:8001/topic/1"
     }).done(function (msg) {
+        console.log(topic.route);
         topic.topic=msg;
     })
+
 </script>
 </body>
 </html>
