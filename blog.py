@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from bottle import route, Bottle, response
+from bottle import route, Bottle, response, json_dumps
 import bottle
 from beaker.middleware import SessionMiddleware
 from config.sesion_config import sesion_config
@@ -19,10 +19,12 @@ def index():
 
 @route("/topiclist")
 def topiclist():
-    return dict([{"id", 1,
-                  "title", "this is title 1"},
-                 {"id", 2,
-                  "title", "this is title 2"}])
+    response.add_header(name="Access-Control-Allow-Origin",
+                        value="http://127.0.0.1:8000")
+    return json_dumps([{"id": 1,
+                        "title": "this is title 1"},
+                       {"id": 2,
+                        "title": "this is title 2"}])
 
 
 @route("/topic/<topicid:int>")
