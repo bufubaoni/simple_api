@@ -4,18 +4,25 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/static/css/semantic.min.css">
     <script src="/static/js/vue.js"></script>
-    <title>Index</title>
+    <title>index</title>
 </head>
 <body>
-<div id="app"><p>{{ message }}</p></div>
+<div id="app"><h1>{{ message.content }}</h1></div>
+<script src="/static/js/jquery-3.1.1.min.js"></script>
+<script src="/static/js/semantic.min.js"></script>
 <script>
-    new Vue({
-        el:'#app',
-        data:{
-            message:"hello world!!"
+    var index = new Vue({
+        el: '#app',
+        data: {
+            message: ""
         }
+    });
+    $.ajax({
+        url: "http://127.0.0.1:8001",
+        dataType: "json",
+    }).done(function (msg) {
+        index.message = msg;
     })
 </script>
-<script src="/static/js/semantic.min.js"></script>
 </body>
 </html>
