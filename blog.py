@@ -20,6 +20,10 @@ def index():
 def topiclist():
     return "This is topiclist"
 
+@route("/topic/<id:int>")
+def topic(id=None):
+    return "Thie is topic {id}".format(id=id)
+
 
 if __name__ == "__main__":
     bottle.run(app=blog, host="127.0.0.1", reloader=True, port=8001)
