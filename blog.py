@@ -11,18 +11,23 @@ blog = SessionMiddleware(app, sesion_config)
 
 @route("/")
 def index():
-    response.add_header(name="Access-Control-Allow-Origin", value="http://127.0.0.1:8000")
+    response.add_header(name="Access-Control-Allow-Origin",
+                        value="http://127.0.0.1:8000")
     return dict({"title": "index",
                  "content": "welcome to my blog"})
 
 
 @route("/topiclist")
 def topiclist():
-    return "This is topiclist"
+    return dict([{"id", 1,
+                  "title", "this is title 1"},
+                 {"id", 2,
+                  "title", "this is title 2"}])
 
-@route("/topic/<id:int>")
-def topic(id=None):
-    return "Thie is topic {id}".format(id=id)
+
+@route("/topic/<topicid:int>")
+def topic(topicid=None):
+    return "Thie is topic {id}".format(id=topicid)
 
 
 if __name__ == "__main__":
