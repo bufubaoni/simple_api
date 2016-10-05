@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/semantic.min.css">
+    <script src="/static/js/vue.min.js"></script>
+    <script src="/static/js/vue-router.min.js"></script>
+    <title>topic</title>
+</head>
+<body>
+<div id="blog">
+    <router-link class="ui blue button" to="/index">Index</router-link>
+    <router-link class="ui blue button" to="/topiclist">About</router-link>
+    <router-view></router-view>
+</div>
+
+<script src="/static/js/jquery-3.1.1.min.js"></script>
+<script src="/static/js/semantic.min.js"></script>
+<script src="/static/js/index.js"></script>
+<script>
+    //    var index = Index;
+//    var Index = Vue.extend({
+//        template: "<div><p>test index</p></div>"
+//    });
+    var About = {
+        template: "<div><h1>topic list</h1><p>topic list</p></div>"
+    };
+    var routes =[{path: '/index', component: Index},
+        {path: '/topiclist', component: About}];
+    var router = new VueRouter({routes});
+    var blog = new Vue({
+        router,
+        data:{
+            msg:""
+        }
+    }).$mount("#blog")
+</script>
+</body>
+</html>
