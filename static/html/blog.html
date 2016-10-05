@@ -10,23 +10,20 @@
 <body>
 <div id="blog">
     <router-link class="ui blue button" to="/index">Index</router-link>
-    <router-link class="ui blue button" to="/topiclist">About</router-link>
+    <router-link class="ui blue button" to="/topiclist">Topic List</router-link>
     <router-view></router-view>
 </div>
 
 <script src="/static/js/jquery-3.1.1.min.js"></script>
 <script src="/static/js/semantic.min.js"></script>
 <script src="/static/js/index.js"></script>
+<script src="/static/js/topiclist.js"></script>
 <script>
-    //    var index = Index;
-//    var Index = Vue.extend({
-//        template: "<div><p>test index</p></div>"
-//    });
     var About = {
         template: "<div><h1>topic list</h1><p>topic list</p></div>"
     };
     var routes =[{path: '/index', component: Index},
-        {path: '/topiclist', component: About}];
+        {path: '/topiclist', component: Topiclist}];
     var router = new VueRouter({routes});
     var blog = new Vue({
         router,
