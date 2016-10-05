@@ -18,12 +18,14 @@
 <script src="/static/js/semantic.min.js"></script>
 <script src="/static/js/index.js"></script>
 <script src="/static/js/topiclist.js"></script>
+<script src="/static/js/topic.js"></script>
 <script>
     var About = {
         template: "<div><h1>topic list</h1><p>topic list</p></div>"
     };
     var routes =[{path: '/index', component: Index},
-        {path: '/topiclist', component: Topiclist}];
+        {path: '/topiclist', component: Topiclist},
+        {path:'/topic/:id',name: 'topic',component:Topic}];
     var router = new VueRouter({routes});
     var blog = new Vue({
         router,
