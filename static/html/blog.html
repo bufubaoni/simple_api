@@ -9,11 +9,11 @@
 </head>
 <body>
 <div id="blog">
-    <router-link class="ui blue button" to="/index">Index</router-link>
+    <router-link class="ui blue button" to="/index" >Index</router-link>
     <router-link class="ui blue button" to="/topiclist">Topic List</router-link>
     <router-view></router-view>
 </div>
-
+<script src="/static/js/jquery-3.1.1.min.js"></script>
 <script src="/static/js/vue-resource.min.js"></script>
 <script src="/static/js/semantic.min.js"></script>
 <script src="/static/js/index.js"></script>
@@ -30,7 +30,7 @@
     var blog = new Vue({
         router,
         data:{
-            msg:""
+            msg:"321"
         }
     }).$mount("#blog")
 </script>
