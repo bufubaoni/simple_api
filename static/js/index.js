@@ -12,9 +12,6 @@ var Index = Vue.extend({
             this.$http.get("http://127.0.0.1:8001/").then((response)=> {
                 console.log(response.data);
                 this.msg = response.data;
-                // this.$nextTick(function () {
-                //     this.msg = response.data;
-                // })
             })
         }
     })
