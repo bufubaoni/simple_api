@@ -7,13 +7,21 @@
 </head>
 <body>
 
-
+<button onclick="test1('qqqqqqq')">test</button>
 <script src="/static/js/jquery-3.1.1.min.js"></script>
 <script src="/static/js/semantic.min.js"></script>
 
 <script>
-
-
+var test = function (va,callback) {
+    console.log(va);
+    callback(va)
+};
+function test1(va) {
+    test(va,function(va){
+    console.log(va);
+    console.log("anymore");
+})
+}
 </script>
 </body>
 </html>
