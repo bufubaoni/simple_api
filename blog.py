@@ -31,7 +31,8 @@ def topiclist():
 def topic(topicid=None):
     response.add_header(name="Access-Control-Allow-Origin",
                         value="http://127.0.0.1:8000")
-    topic={"topic": "this is topic {topicid}".format(topicid=topicid)}
+    topic = {"topic": "this is topic {topicid}".format(topicid=topicid),
+             "title": "title"}
     return topic
 
 
