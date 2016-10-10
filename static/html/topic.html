@@ -3,37 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/static/css/semantic.min.css">
-    <script src="/static/js/vue.min.js"></script>
-    <script src="/static/js/vue-router.min.js"></script>
-    <title>topic</title>
+    <title>test</title>
 </head>
 <body>
-<div id="topic">
-    <!--<p>{{ topic.topic }}</p>-->
-    <router-link class="ui blue button" to="/home">Home</router-link>
-    <router-link class="ui blue button" to="/about">About</router-link>
-    <router-view></router-view>
-</div>
+
 
 <script src="/static/js/jquery-3.1.1.min.js"></script>
 <script src="/static/js/semantic.min.js"></script>
 
 <script>
 
-    var Home = Vue.extend({
-        template: "<div><h1>home</h1><p>home</p></div>"
-    });
-    var About = {
-        template: "<div><h1>about</h1><p>about</p></div>"
-    };
-    var routes = [{path: '/home', component: Home},
-        {path: '/about', component: About}];
-    var router = new VueRouter({
-        routes
-    });
-    var topic = new Vue({
-        router
-    }).$mount("#topic")
+
 </script>
 </body>
 </html>
