@@ -10,7 +10,7 @@
 <body>
 <div id="blog">
     <div class="ui teal stackable blue three main menu">
-        <div class="item" >
+        <div class="item">
             <img src="/static/1.png">
         </div>
 
@@ -19,6 +19,9 @@
         <router-link class="item" to="/topiclist">Topic List</router-link>
         <router-link class="item" to="/test">Test</router-link>
     </div>
+    <button class="ui button">
+        this is test
+    </button>
     <div class="ui  grid">
         <router-view></router-view>
     </div>
@@ -38,7 +41,7 @@
     var routes = [{path: '/index', component: Index},
         {path: '/topiclist', component: Topiclist},
         {path: '/topic/:id', name: 'topic', component: Topic},
-        {path:"/test",name:"test",component:Test}];
+        {path: "/test", name: "test", component: Test}];
     var router = new VueRouter({routes});
     var blog = new Vue({
         router,
