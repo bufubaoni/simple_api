@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from bottle import route, Bottle, response, json_dumps
+from bottle import route, Bottle, response, json_dumps,html_quote
 import bottle
 from beaker.middleware import SessionMiddleware
 from config.sesion_config import sesion_config
@@ -31,7 +31,7 @@ def topiclist():
 def topic(topicid=None):
     response.add_header(name="Access-Control-Allow-Origin",
                         value="http://127.0.0.1:8000")
-    topic = {"topic": "this is topic {topicid}".format(topicid=topicid),
+    topic = {"topic": "<h2>this is topic {topicid}</h2>".format(topicid=topicid),
              "title": "title"}
     return topic
 

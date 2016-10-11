@@ -8,17 +8,19 @@ var Topic = Vue.extend({
     "<div>" +
     "<h1>{{ topic.title }}</h1>" +
     "<div class='ui divider'></div>" +
-    "<p>{{topic.topic}}</p>" +
+    "<div v-html='topic.topic'></div>" +
     "</div>" +
     "</div>" +
     "</div>",
     data: function () {
         return {
-            topic: $.ajax({
-                url: "http://127.0.0.1:8001/topic/" + this.$route.params.id,
-                dataType: "json",
-                async: false
-            }).done().responseJSON
+            topic: "1233333"
         }
+    },
+    created: function () {
+        this.$http.get("http://127.0.0.1:8001/topic/" + this.$route.params.id).then((response)=> {
+            console.log(response.data);
+            this.topic = response.data;
+        })
     }
 });
