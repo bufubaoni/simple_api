@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="/static/css/semantic.min.css">
     <script src="/static/js/vue.min.js"></script>
     <script src="/static/js/vue-router.min.js"></script>
+    <script src="/static/js/vue-resource.min.js"></script>
     <title>topic</title>
 </head>
 <body>
@@ -15,11 +16,11 @@
         </div>
 
 
-        <router-link class="header  item" to="/index">Index</router-link>
-        <router-link class="item" to="/topiclist">Topic List</router-link>
-        <router-link class="item" to="/test">Test</router-link>
+        <router-link class="header  item" :to="{path: '/index'}" >Index</router-link>
+        <router-link class="item" :to="{path: '/topiclist'}">Topic List</router-link>
+        <router-link class="item" :to="{path: '/test'}">Test</router-link>
     </div>
-    <button class="ui button">
+    <button class="ui primary button" v-on:click="change">
         this is test
     </button>
     <div class="ui  grid">
@@ -28,25 +29,28 @@
 
 </div>
 <script src="/static/js/jquery-3.1.1.min.js"></script>
-<script src="/static/js/vue-resource.min.js"></script>
 <script src="/static/js/semantic.min.js"></script>
 <script src="/static/js/index.js"></script>
 <script src="/static/js/topiclist.js"></script>
 <script src="/static/js/topic.js"></script>
 <script src="/static/js/test.js"></script>
 <script>
-    var About = {
-        template: "<div><h1>topic list</h1><p>topic list</p></div>"
-    };
     var routes = [{path: '/index', component: Index},
         {path: '/topiclist', component: Topiclist},
         {path: '/topic/:id', name: 'topic', component: Topic},
         {path: "/test", name: "test", component: Test}];
-    var router = new VueRouter({routes});
+    var router = new VueRouter({routes,linkActiveClass :'active'});
     var blog = new Vue({
         router,
         data: {
             msg: "321"
+        },
+        methods: {
+            change: function () {
+                console.log("99999");
+                Test.data.test = "66666666";
+
+            }
         }
     }).$mount("#blog")
 </script>
