@@ -48,7 +48,9 @@
         methods: {
             change: function () {
                 console.log("99999");
-                Test.data.test = "66666666";
+                console.log(this.$children[3].test);
+
+                this.$children[3].test = "66666666";
 
             }
         }

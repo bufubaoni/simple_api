@@ -7,5 +7,6 @@ var Test = Vue.extend({
         return {
             test: "1233333"
         }
+        
     }
 });
