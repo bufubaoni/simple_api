@@ -2,7 +2,14 @@
  * Created by Alex on 2016/10/3.
  */
 var Index = Vue.extend({
-        template: "<div><h1>{{ msg.title }}</h1><p>{{ msg.content }}</p></div>",
+        template: "<div class='row'>" +
+        "<div class='three wide column'>" + "<img>" + "</div>" +
+        "<div class='ten wide column'>" +
+        "<div>" +
+        "<h1>{{ msg.content }}</h1>" +
+        "</div>" +
+        "</div>" +
+        "</div>",
         data: function () {
             return {
                 msg: "123"

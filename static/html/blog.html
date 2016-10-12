@@ -14,15 +14,10 @@
         <div class="item">
             <img src="/static/1.png">
         </div>
-
-
         <router-link class="header  item" :to="{path: '/index'}" >Index</router-link>
         <router-link class="item" :to="{path: '/topiclist'}">Topic List</router-link>
         <router-link class="item" :to="{path: '/test'}">Test</router-link>
     </div>
-    <button class="ui primary button" v-on:click="change">
-        this is test
-    </button>
     <div class="ui  grid">
         <router-view></router-view>
     </div>
@@ -44,15 +39,6 @@
         router,
         data: {
             msg: "321"
-        },
-        methods: {
-            change: function () {
-                console.log("99999");
-                console.log(this.$children[3].test);
-
-                this.$children[3].test = "66666666";
-
-            }
         }
     }).$mount("#blog")
 </script>
