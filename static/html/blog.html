@@ -34,7 +34,7 @@
         {path: '/topiclist', component: Topiclist},
         {path: '/topic/:id', name: 'topic', component: Topic},
         {path: "/test", name: "test", component: Test}];
-    var router = new VueRouter({routes,linkActiveClass :'active'});
+    var router = new VueRouter({routes,linkActiveClass :'active',mode:'history'});
     var blog = new Vue({
         router,
         data: {
