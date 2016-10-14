@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from bottle import route, Bottle, response, json_dumps,html_quote
+from bottle import route, Bottle, response, json_dumps,html_quote,post
 import bottle
 from beaker.middleware import SessionMiddleware
 from config.sesion_config import sesion_config
+from bottle_rest import json_to_params
 
 app = bottle.default_app()
 blog = SessionMiddleware(app, sesion_config)
@@ -35,6 +36,15 @@ def topic(topicid=None):
              "title": "title"}
     return topic
 
+
+@post("/test", "post")
+@json_to_params
+def test(*args,**kwargs):
+
+    return [{"id": 1,
+                        "title": "this is title 1"},
+                       {"id": 2,
+                        "title": "this is title 2"}]
 
 if __name__ == "__main__":
     bottle.run(app=blog, host="127.0.0.1", reloader=True, port=8001)
