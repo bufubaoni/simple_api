@@ -14,7 +14,7 @@
         <div class="item">
             <img src="/static/1.png">
         </div>
-        <router-link class="header  item" :to="{path: '/index'}" >Index</router-link>
+        <router-link class="header  item" :to="{path: '/index'}">Index</router-link>
         <router-link class="item" :to="{path: '/topiclist'}">Topic List</router-link>
     </div>
     <div class="ui  grid">
@@ -29,11 +29,12 @@
 <script src="/static/js/topic.js"></script>
 <script src="/static/js/404.js"></script>
 <script>
-    var routes = [{path: '/index', component: Index},
+    var routes = [{path: '/', component: Index},
+        {path: '/index', component: Index},
         {path: '/topiclist', component: Topiclist},
         {path: '/topic/:id', name: 'topic', component: Topic},
         {path: "*", name: "test", component: NotFound}];
-    var router = new VueRouter({routes,linkActiveClass :'active',mode:'history'});
+    var router = new VueRouter({routes, linkActiveClass: 'active', mode: 'history'});
     var blog = new Vue({
         router,
         data: {
