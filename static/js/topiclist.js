@@ -17,8 +17,8 @@ var Topiclist = Vue.extend({
         },
         created: function () {
             this.$http.get("http://127.0.0.1:8001/topiclist").then((response)=> {
-                console.log(JSON.parse(response.data));
-                this.items = JSON.parse(response.data);
+                console.log(response.data);
+                this.items = response.data;
             })
         }
 
