@@ -7,4 +7,5 @@ db.define_table("topic",
                 Field('content'),
                 Field('slug'),
                 Field('tags'),
-                Field('author'))
+                Field('author'),
+                Field('modifyon'))
