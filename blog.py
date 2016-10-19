@@ -5,7 +5,7 @@ import bottle
 from beaker.middleware import SessionMiddleware
 from config.sesion_config import sesion_config
 from bottle_rest import json_to_params
-from functools import wraps
+from functools import wraps, partial
 
 app = bottle.default_app()
 blog = SessionMiddleware(app, sesion_config)
@@ -14,6 +14,8 @@ blog = SessionMiddleware(app, sesion_config)
 @route("/")
 @json_to_params
 def index():
+    response.add_header(name="Access-Control-Allow-Origin",
+                        value="http://127.0.0.1")
     return {"title": "index",
             "content": "welcome to my blog"}
 
@@ -21,34 +23,25 @@ def index():
 @route("/topiclist")
 @json_to_params
 def topiclist():
+    response.add_header(name="Access-Control-Allow-Origin",
+                        value="http://127.0.0.1")
     return [{"id": 1,
              "title": "this is title 1"},
             {"id": 2,
              "title": "this is title 2"}]
 
 
-def test(f):
-    @wraps(f,assigned=)
-    def z(*args, **kwargs):
-        return f(*args, **kwargs)
-
-    return z
-
-
 @route("/topic/<topicid:int>")
 @json_to_params
 def topic(topicid=None):
-    topic = {"topic": "<h2>this is topic {topicid}</h2>".format(topicid=topicid),
+    response.add_header(name="Access-Control-Allow-Origin",
+                        value="http://127.0.0.1")
+    topic = {"topic": ("<div class='ui segment'>"
+                       "<p>{topicid}</p>"
+                       "</div>").format(topicid=topicid),
              "title": "title"}
     return topic
 
 
-@test
-def p():
-    x = 1
-    print x
-
-
 if __name__ == "__main__":
-    print p()
     bottle.run(app=blog, host="127.0.0.1", reloader=True, port=8001)
