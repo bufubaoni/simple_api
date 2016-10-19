@@ -6,13 +6,27 @@ var Login = Vue.extend({
     "<div class='three wide column'>" + "<img>" + "</div>" +
     "<div class='ten wide column'>" +
     "<div>" +
-    "<h1>{{ topic }}</h1>" +
+    "<div class='ui segment'>" +
+    "<h2>{{ login }}</h2>" +
+    "<div class='ui divider'></div>" +
+    "<form class='ui form'>" +
+    "<div class='field'>" +
+    "<label>User name</label>" +
+    "<input name='username' placeholder='User name' type='text'>" +
+    "</div>" +
+    "<div class='field'>" +
+    "<label>PassWord</label>" +
+    "<input name='PassWord' placeholder='PassWord' type='text'>" +
+    "</div>" +
+    "<button class='ui blue button' type='submit'>Submit</button>" +
+    "</form>" +
+    "</div>" +
     "</div>" +
     "</div>" +
     "</div>",
     data: function () {
         return {
-            topic: "1233333"
+            login: "Login"
         }
     }
 });
