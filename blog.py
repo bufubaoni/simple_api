@@ -37,7 +37,7 @@ def topic(topicid=None):
     response.add_header(name="Access-Control-Allow-Origin",
                         value="http://127.0.0.1")
     topic = {"topic": ("<div class='ui segment'>"
-                       "<p>{topicid}</p>"
+                       "<p>ttt{topicid}</p>"
                        "</div>").format(topicid=topicid),
              "title": "title"}
     return topic
