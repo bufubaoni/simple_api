@@ -7,18 +7,18 @@ var Login = Vue.extend({
     "<div class='ten wide column'>" +
     "<div>" +
     "<div class='ui segment'>" +
-    "<h2>{{ login }}</h2>" +
+    "<h2>{{ loginmsg }}</h2>" +
     "<div class='ui divider'></div>" +
     "<form class='ui form'>" +
     "<div class='field'>" +
-    "<label>User name</label>" +
-    "<input name='username' placeholder='User name' type='text'>" +
+    "<label>User name: {{ username }}</label>" +
+    "<input name='username' placeholder='User name' type='text' v-model='username'>" +
     "</div>" +
     "<div class='field'>" +
     "<label>PassWord</label>" +
-    "<input name='PassWord' placeholder='PassWord' type='text'>" +
+    "<input name='PassWord' placeholder='PassWord' type='text' v-model='password'>" +
     "</div>" +
-    "<button class='ui blue button' type='submit'>Submit</button>" +
+    "<a class='ui blue button' v-on:click='login'>Submit</a>" +
     "</form>" +
     "</div>" +
     "</div>" +
@@ -26,7 +26,14 @@ var Login = Vue.extend({
     "</div>",
     data: function () {
         return {
-            login: "Login"
+            loginmsg: "Login",
+            username: "666",
+            password: "****"
+        }
+    },
+    methods: {
+        login: function () {
+            
         }
     }
 });
