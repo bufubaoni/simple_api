@@ -33,7 +33,8 @@ var Login = Vue.extend({
     },
     methods: {
         login: function () {
-            
+            store.state.username="jiushi zheyang ? qaw ",
+            console.log(store.state.username);
         }
     }
 });

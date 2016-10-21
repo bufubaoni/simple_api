@@ -39,6 +39,12 @@
         {path: '/topic/:id', name: 'topic', component: Topic},
         {path: "*", name: "test", component: NotFound}];
     var router = new VueRouter({routes, linkActiveClass: 'active', mode: 'history'});
+    var store = new Vuex.Store({
+        state:{
+            username:"username",
+            password:"password",
+        },
+    })
     var blog = new Vue({
         router,
         data: {
