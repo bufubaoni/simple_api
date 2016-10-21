@@ -20,7 +20,8 @@ var Index = Vue.extend({
                 console.log(response.data);
                 this.msg = response.data;
             })
-        }
+        },
+    
     })
     ;
 

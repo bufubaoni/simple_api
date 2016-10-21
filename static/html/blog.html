@@ -16,6 +16,7 @@
         <router-link class="item" :to="{path:'/admin',component: Login}">login</router-link>
     </div>
     <div class="ui  grid">
+        <a>{{ ok }}</a>
         <router-view></router-view>
     </div>
 
@@ -44,11 +45,19 @@
             username:"username",
             password:"password",
         },
-    })
+        modules:{
+            lo:Login
+        }
+    });
     var blog = new Vue({
         router,
         data: {
             msg: "321"
+        },
+        computed:{
+            ok:function () {
+                return "you";
+            }
         }
     }).$mount("#blog")
 </script>

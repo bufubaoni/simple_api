@@ -16,6 +16,7 @@ var Login = Vue.extend({
     "</div>" +
     "<div class='field'>" +
     "<label>PassWord</label>" +
+        +"<a>{{ login }}</a>"+
     "<input name='PassWord' placeholder='PassWord' type='text' v-model='password'>" +
     "</div>" +
     "<a class='ui blue button' v-on:click='login'>Submit</a>" +
@@ -31,10 +32,12 @@ var Login = Vue.extend({
             password: "****"
         }
     },
-    methods: {
-        login: function () {
-            store.state.username="jiushi zheyang ? qaw ",
-            console.log(store.state.username);
+    state:{
+      login6:'666'
+    },
+    computed: {
+        login () {
+            return store.state.username;
         }
     }
 });

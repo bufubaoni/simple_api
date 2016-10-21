@@ -6,14 +6,17 @@ var NotFound = Vue.extend({
     "<div class='three wide column'>" + "<img>" + "</div>" +
     "<div class='ten wide column'>" +
     "<div>" +
-    "<h1>{{ msg }}</h1>" +
+    "<h1>{{ next }}</h1>" +
     "</div>" +
     "</div>" +
     "</div>",
     data: function () {
         return {
             msg: "Not Found"
+        };},
+    computed:{
+        next(){
+            return this.msg=store.state.username;
         }
-
     }
 });
