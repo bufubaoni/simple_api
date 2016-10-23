@@ -56,7 +56,8 @@
         },
         computed:{
             ok:function () {
-                return "you";
+
+                return store.state.username;
             }
         }
     }).$mount("#blog")

@@ -35,9 +35,10 @@ var Login = Vue.extend({
     state:{
       login6:'666'
     },
-    computed: {
+    methods: {
         login () {
-            return store.state.username;
+            console.log("nonoe");
+            store.state.username="nononononon";
         }
     }
 });
