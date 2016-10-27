@@ -15,8 +15,7 @@ var Login = Vue.extend({
     "<input name='username' placeholder='User name' type='text' v-model='username'>" +
     "</div>" +
     "<div class='field'>" +
-    "<label>PassWord</label>" +
-        +"<a>{{ login }}</a>"+
+    "<label>PassWord</label>" + +"<a>{{ login }}</a>" +
     "<input name='PassWord' placeholder='PassWord' type='text' v-model='password'>" +
     "</div>" +
     "<a class='ui blue button' v-on:click='login'>Submit</a>" +
@@ -32,13 +31,20 @@ var Login = Vue.extend({
             password: "****"
         }
     },
-    state:{
-      login6:'666'
+    state: {
+        login6: '666'
     },
     methods: {
         login () {
-            console.log("nonoe");
-            store.state.username="nononononon";
+            this.$http.post("http://127.0.0.1:8001/login", {
+                username: this.$data.username,
+                passwd: this.$data.password,
+                time:new Date()
+            }).then((response)=> {
+                    console.log(response.body.ok);
+
+                }
+            )
         }
     }
 });

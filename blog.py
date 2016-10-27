@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from bottle import route, Bottle, response, json_dumps, post
+from bottle import route, Bottle, response, json_dumps, post, request
 import bottle
 from beaker.middleware import SessionMiddleware
 from config.sesion_config import sesion_config
@@ -41,6 +41,19 @@ def topic(topicid=None):
                        "</div>").format(topicid=topicid),
              "title": "title"}
     return topic
+
+
+@post("/login")
+@route("/login",method=["OPTIONS", "GET"])
+def login():
+    response.add_header(name="Access-Control-Allow-Origin",
+                        value="http://127.0.0.1")
+    response.add_header(name="Access-Control-Allow-Methods",
+                        value="POST")
+    response.add_header(name="Access-Control-Allow-Headers",
+                        value='Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token')
+    print request.json
+    return {"ok": "ok"}
 
 
 if __name__ == "__main__":
