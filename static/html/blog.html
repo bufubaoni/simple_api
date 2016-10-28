@@ -16,7 +16,6 @@
         <router-link class="item" :to="{path:'/admin',component: Login}">login</router-link>
     </div>
     <div class="ui  grid">
-        <a>{{ ok }}</a>
         <router-view></router-view>
     </div>
 
@@ -42,8 +41,7 @@
     var router = new VueRouter({routes, linkActiveClass: 'active', mode: 'history'});
     var store = new Vuex.Store({
         state:{
-            username:"username",
-            password:"password",
+            sessionid:"",
         },
         modules:{
             lo:Login
@@ -53,11 +51,6 @@
         router,
         data: {
             msg: "321"
-        },
-        computed:{
-            ok:function () {
-                return store.state.username;
-            }
         }
     }).$mount("#blog")
 </script>

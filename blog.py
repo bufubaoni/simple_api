@@ -9,6 +9,7 @@ from functools import wraps, partial
 
 app = bottle.default_app()
 blog = SessionMiddleware(app, sesion_config)
+globals()["session"] = request.environ.get("beaker.session")
 
 
 @route("/")
@@ -44,7 +45,7 @@ def topic(topicid=None):
 
 
 @post("/login")
-@route("/login",method=["OPTIONS", "GET"])
+@route("/login", method=["OPTIONS", "GET"])
 def login():
     response.add_header(name="Access-Control-Allow-Origin",
                         value="http://127.0.0.1")
@@ -52,8 +53,20 @@ def login():
                         value="POST")
     response.add_header(name="Access-Control-Allow-Headers",
                         value='Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token')
-    print request.json
-    return {"ok": "ok"}
+    session = request.environ.get("beaker.session")
+    if request.method == "POST":
+        return {"sessionid":request.json.get("username")}
+
+    # if request.body.json.get("username") == "Alex":
+    #     response.add_header(name="Access-Control-Allow-Origin",
+    #                         value="http://127.0.0.1")
+    #     response.add_header(name="Access-Control-Allow-Methods",
+    #                         value="POST")
+    #     response.add_header(name="Access-Control-Allow-Headers",
+    #                         value='Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token')
+    #     session["username"] = "Alex"
+    #     return {"username": "Alex"}
+    return {"sessionid": "ok"}
 
 
 if __name__ == "__main__":

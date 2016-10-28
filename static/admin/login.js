@@ -11,11 +11,11 @@ var Login = Vue.extend({
     "<div class='ui divider'></div>" +
     "<form class='ui form'>" +
     "<div class='field'>" +
-    "<label>User name: {{ username }}</label>" +
+    "<label>User name:</label>" +
     "<input name='username' placeholder='User name' type='text' v-model='username'>" +
     "</div>" +
     "<div class='field'>" +
-    "<label>PassWord</label>" + +"<a>{{ login }}</a>" +
+    "<label>PassWord</label>" +
     "<input name='PassWord' placeholder='PassWord' type='text' v-model='password'>" +
     "</div>" +
     "<a class='ui blue button' v-on:click='login'>Submit</a>" +
@@ -41,7 +41,7 @@ var Login = Vue.extend({
                 passwd: this.$data.password,
                 time:new Date()
             }).then((response)=> {
-                    console.log(response.body.ok);
+                    console.log(response.body.sessionid);
 
                 }
             )
