@@ -6,6 +6,7 @@ from beaker.middleware import SessionMiddleware
 from config.sesion_config import sesion_config
 from bottle_rest import json_to_params
 from com.restful import restfull
+from models import db
 
 app = bottle.default_app()
 blog = SessionMiddleware(app, sesion_config)
@@ -57,9 +58,14 @@ def login():
     return {"sessionid": "ok"}
 
 
-# @post("/adduser")
-# def adduser():
-#     return {""}
+@route("/adduser", method=["OPTIONS", "GET", "POST"])
+@restfull(name="Access-Control-Allow-Origin",
+          value="http://127.0.0.1",
+          methods="POST",
+          headers="Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token")
+def adduser():
+    
+    return {""}
 
 
 if __name__ == "__main__":

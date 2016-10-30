@@ -31,9 +31,6 @@ var Login = Vue.extend({
             password: "****"
         }
     },
-    state: {
-        login6: '666'
-    },
     methods: {
         login () {
             this.$http.post("http://127.0.0.1:8001/login", {
