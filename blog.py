@@ -7,6 +7,7 @@ from config.sesion_config import sesion_config
 from bottle_rest import json_to_params
 from com.restful import restfull
 from models import db
+from datetime import datetime
 
 app = bottle.default_app()
 blog = SessionMiddleware(app, sesion_config)
@@ -64,8 +65,14 @@ def login():
           methods="POST",
           headers="Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token")
 def adduser():
-
-    return {""}
+    if request.method == "POST":
+        id1 = db.author.insert(nickname=request.json.get("username"),
+                               avatar=request.json.get("passwd"),
+                               group='1',
+                               createon=datetime.now())
+        return {"msg": "inserd id {userid}".format(userid=id1)}
+    else:
+        return {"msg": "no"}
 
 
 if __name__ == "__main__":

@@ -8,7 +8,7 @@ progress.log
 *.pyc
 .idea
 session/*
-
+Database/*
 
 # ---> Python
 # Byte-compiled / optimized / DLL files
@@ -69,3 +69,5 @@ docs/_build/
 
 # PyBuilder
 target/
+Database/db.sqlite-journal
+session/

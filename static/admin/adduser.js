@@ -18,7 +18,7 @@ var Adduser = Vue.extend({
     "<label>PassWord</label>" +
     "<input name='PassWord' placeholder='PassWord' type='text' v-model='password'>" +
     "</div>" +
-    "<a class='ui blue button' v-on:click='adduser'>Submit</a>" +
+    "<a class='ui blue button' v-on:click='adduser'>Add</a>" +
     "</form>" +
     "</div>" +
     "</div>" +
