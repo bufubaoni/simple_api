@@ -5,4 +5,7 @@ from models import db
 
 db.define_table("author",
                 Field('nickname'),
-                Field('avatar'))
+                Field('email'),
+                Field('avatar'),
+                Field('group', 'integer'),
+                Field('createon', 'datetime'))
