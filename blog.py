@@ -64,7 +64,7 @@ def login():
           methods="POST",
           headers="Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token")
 def adduser():
-    
+
     return {""}
 
 

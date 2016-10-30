@@ -37,6 +37,7 @@
         {path:'/admin',component: Login},
         {path: '/topiclist', component: Topiclist},
         {path: '/topic/:id', name: 'topic', component: Topic},
+          {path: '/adduser', name: 'adduser', component: Adduser},
         {path: "*", name: "test", component: NotFound}];
     var router = new VueRouter({routes, linkActiveClass: 'active', mode: 'history'});
     var store = new Vuex.Store({
