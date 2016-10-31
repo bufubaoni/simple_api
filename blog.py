@@ -8,6 +8,8 @@ from bottle_rest import json_to_params
 from com.restful import restfull
 from models import db
 from datetime import datetime
+import uuid
+
 
 app = bottle.default_app()
 blog = SessionMiddleware(app, sesion_config)
