@@ -10,7 +10,6 @@ from models import db
 from datetime import datetime
 import uuid
 
-
 app = bottle.default_app()
 blog = SessionMiddleware(app, sesion_config)
 
@@ -56,7 +55,15 @@ def topic(topicid=None):
           headers="Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token")
 def login():
     if request.method == "POST":
-        return {"sessionid": request.json.get("username")}
+        username = request.json.get("username")
+        password = request.json.get("password")
+        user = db(db.author.nickname == username,
+                  db.author.avatar == password).select().first()
+        if user:
+            return {"user_id": user.id}
+        else:
+            return {"message":"no user select"}
+        # return {"sessionid": request.json.get("username")}
 
     return {"sessionid": "ok"}
 

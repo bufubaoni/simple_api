@@ -38,7 +38,7 @@ var Login = Vue.extend({
                 passwd: this.$data.password,
                 time:new Date()
             }).then((response)=> {
-                    console.log(response.body.sessionid);
+                    console.log(response.body);
 
                 }
             )
