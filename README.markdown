@@ -1,6 +1,4 @@
-# blog
-this is my own blog source in simplist method
+# simple api
 
-it use web front framework vue.js
+base django for create simple api view
 
-in bottle just use a rest service
